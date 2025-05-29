@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Twitter, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 

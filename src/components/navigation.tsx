@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -12,32 +12,36 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'Contact', href: '#contact' },
-]
+];
 
 interface NavigationProps {
-  showNotification?: (title: string, message: string, duration?: number) => void
+  showNotification?: (
+    title: string,
+    message: string,
+    duration?: number
+  ) => void;
 }
 
 export default function Navigation({ showNotification }: NavigationProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    console.log(showNotification);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (href: string) => {
-    setIsOpen(false)
-    const element = document.querySelector(href)
+    setIsOpen(false);
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
   return (
     <motion.nav
@@ -136,4 +140,4 @@ export default function Navigation({ showNotification }: NavigationProps) {
       </AnimatePresence>
     </motion.nav>
   );
-} 
+}

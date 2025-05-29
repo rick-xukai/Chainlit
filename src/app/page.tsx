@@ -12,7 +12,7 @@ import { NotificationContainer } from '@/components/notification'
 import { useNotifications } from '@/hooks/use-notifications'
 
 export default function Home() {
-  const { notifications, removeNotification, showSuccess, showInfo, showWarning } = useNotifications()
+  const { notifications, removeNotification, showInfo } = useNotifications()
 
   return (
     <SmoothScrollProvider>
